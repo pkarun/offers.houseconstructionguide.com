@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HCG All-Access Pass: Get 25+ House Construction Guides </title>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -16,427 +17,259 @@
             display: flex;
             justify-content: center;
         }
-
+    
         .content {
             max-width: 1200px;
             padding: 10px;
             width: 100%;
             background-color: transparent;
-            /* Remove background */
             box-shadow: none;
-            /* Remove box shadow */
             border-radius: 0;
-            /* Remove border radius */
             box-sizing: border-box;
-            margin: 0 auto;
-            /* Center the content */
-
+            margin: 0 auto; /* Center the content */
         }
-
+    
+        h1, h2, h3 {
+            text-align: center; /* Center alignment for headers */
+            margin: 30px 0; /* Consistent margins for headers */
+        }
+    
         h1 {
-            text-align: center;
-            /* Center align the text */
-            margin-left: 0;
-            /* Ensure there’s no left margin */
-            margin-right: 0;
-            /* Ensure there’s no right margin */
-            padding: 0;
-            /* Remove any padding */
+            margin: 0; /* No left/right margin */
         }
-
+    
         h2 {
             font-size: 28px;
-            margin-bottom: 15px;
             color: #B20606;
-            text-align: center;
-            /* Center alignment added */
-            margin: 30px 0;
-            /* Adjusted margins */
         }
-
+    
         h3 {
-            font-size: 24px;
-            /* You can adjust this size as needed */
-            margin-bottom: 15px;
-            text-align: center;
-            /* Center alignment added */
-            margin: 30px 0;
-            /* Adjusted margins */
+            font-size: 24px; /* Adjustable size */
         }
-
+    
         b {
-            font-size: 21px;
-            /* This will make the bold text inherit the font size from its parent element */
+            font-size: 21px; /* Inherits size from parent */
         }
-
-        ul,
-        ol {
-            padding-left: 20px;
-            /* Optional: Adds space to the left of the bullets */
-        }
-
-        li {
-            margin-bottom: 10px;
-            /* Adjust the value as needed for space after bullets */
-        }
-
-
-        /* Mobile view adjustment */
-        @media (max-width: 600px) {
-            b {
-                font-size: 18px;
-                /* Smaller font size for mobile */
-            }
-        }
-
-        @media (max-width: 600px) {
-            .content {
-                padding: 10px;
-                /* Adjust padding for mobile */
-            }
-
-            h1,
-            h2 {
-                margin: 10px 0;
-                /* Reduce margin for headers */
-            }
-
-            p,
-            ul {
-                font-size: 16px;
-                /* Reduce font size for better fit */
-            }
-        }
-
-
+    
+        /* Text Elements */
         p {
             font-size: 22px;
             color: #000000;
             margin-bottom: 20px;
             text-align: left;
         }
-
-        ul {
-            font-size: 21px;
+    
+        ul, ol {
+            padding-left: 20px; /* Optional: Space for bullets */
+            font-size: 21px; /* Set font size for lists */
             color: #000000;
             list-style-type: disc;
             margin-left: 20px;
             text-align: left;
         }
-
-        .cta-btn {
+    
+        li {
+            margin-bottom: 10px; /* Space after bullets */
+        }
+    
+        /* Price Styles */
+        .price {
+            font-size: 48px; /* Bigger font size */
+            text-align: center;
+            color: #B20606;
+            margin: 20px 0;
+        }
+    
+        .strike {
+            text-decoration: line-through;
+            margin-right: 10px; /* Space between prices */
+        }
+    
+        /* Button Styles */
+        .cta-btn, .light-cta-btn {
             display: block;
-            padding: 10px 18px;
-            /* Reduced button size */
-            font-size: 21px;
-            /* Reduced button font size */
-            background-color: #17631D;
-            color: #FFFFFF;
+            padding: 10px 18px; /* Reduced button size */
+            font-size: 21px; /* Button font size */
             text-decoration: none;
             border-radius: 5px;
             text-align: center;
             margin: 20px auto;
             width: fit-content;
         }
-
+    
+        .cta-btn {
+            background-color: #17631D;
+            color: #FFFFFF;
+        }
+    
         .cta-btn:hover {
             background-color: #0A290A;
         }
-
+    
+        .light-cta-btn {
+            background-color: #E0E085;
+            color: #000000;
+        }
+    
+        .light-cta-btn:hover {
+            background-color: #D0D044;
+        }
+    
+        /* Highlight and Testimonial Styles */
         .highlight {
             background-color: #fff3cd;
             padding: 10px;
             border-left: 5px solid #ffc107;
         }
-
+    
         .testimonial {
             background-color: #f1f1f1;
             padding: 10px;
             border: 1px solid #ddd;
             margin-bottom: 20px;
         }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 30px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            .cta-btn {
-                font-size: 21px;
-                padding: 8px 16px;
-                background-color: #17631D;
-                /* Adjusted padding for smaller screens */
-            }
-
-            .light-cta-btn {
-                font-size: 21px;
-                padding: 8px 16px;
-                background-color: #E0E085;
-                /* Adjusted padding for smaller screens */
-            }
-
-        }
-
-        .intro-title {
-            font-size: 24px;
-            /* Adjust the size as needed */
-            color: #B20606;
-            /* Change to your desired color */
-            text-align: center;
-            /* Center the text */
-            margin: 5px 0;
-            /* Add space above and below the title */
-        }
-
-        p,
-        ul,
-        h1,
-        h2 {
-            overflow-wrap: break-word;
-            /* Prevent overflow */
-        }
-
-        .price {
-            font-size: 48px;
-            /* Much bigger font size */
-            text-align: center;
-            color: #B20606;
-            /* You can adjust the color */
-            margin: 20px 0;
-        }
-
-        .strike {
-            text-decoration: line-through;
-            margin-right: 10px;
-            /* Adds space between ₹1000 and ₹199 */
-        }
-
+    
+        /* Image Styles */
         img {
             max-width: 100%;
             height: auto;
             display: block;
         }
-
-        /* For larger screens (desktop/tablet), set a fixed max-width */
-        @media (min-width: 768px) {
-            .content {
-                max-width: 800px;
-                /* Limits the content width on larger screens */
-            }
-        }
-
-        @media (max-width: 600px) {
-            .content {
-                padding: 10px;
-                /* Adjust padding for smaller screens */
-            }
-
-            h1 {
-                margin: 10px 0;
-                /* Reduce margins for headers */
-                font-size: 24px;
-                font-size: 1.5em;
-                /* Adjust font size for mobile */
-                text-align: center;
-                /* Ensure it's centered */
-            }
-
-            h2 {
-                margin: 10px 0;
-                /* Reduce margins for headers */
-                font-size: 20px;
-            }
-
-            .price {
-                font-size: 32px;
-                /* Reduce the size of the price text */
-            }
-
-            p,
-            ul {
-                font-size: 19px;
-                /* Adjust font size for better fit */
-            }
-
-            .cta-btn {
-                font-size: 18px;
-                /* Adjust button font size */
-                background-color: #17631D;
-                padding: 8px 16px;
-            }
-
-            .light-cta-btn {
-                font-size: 18px;
-                /* Adjust button font size */
-                background-color: #E0E085;
-                padding: 8px 16px;
-            }
-
-            .intro-title {
-                font-size: 18px;
-                /* Reduce the size of the intro title for mobile */
-            }
-        }
-
-        /* Default (Desktop view) */
+    
+        /* Author Container */
         .author-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 20px;
         }
-
+    
         .author-container img {
-            width: 150px;
-            /* Adjust size as needed */
+            width: 150px; /* Adjust size as needed */
             border-radius: 50%;
-            margin-left: 20px;
-            /* Adds space between the text and image */
-            margin-right: 20px;
-            /* Adds space after the image on desktop */
+            margin: 0 20px; /* Space around image */
         }
-
-        /* Mobile view adjustment */
-        @media (max-width: 600px) {
-            .author-container {
-                flex-direction: column;
-                /* Stack image below the text */
-                text-align: center;
-                /* Center align content for better mobile experience */
-            }
-
-            .author-container img {
-                margin-left: 0;
-                /* Remove left margin on mobile */
-                margin-right: 0;
-                /* Remove right margin on mobile */
-                margin-top: 10px;
-                /* Add space between text and image */
-                width: 100px;
-                /* Reduce image size for smaller screens */
-            }
-        }
-
+    
+        /* Footer Styles */
         footer {
-            padding: 20px 0;
-            /* Padding for spacing */
-            border-top: 1px solid #ddd;
-            /* Top border */
-            margin-top: 40px;
-            /* Space above footer */
-            font-size: 14px;
-            /* Font size for footer text */
-            color: #555;
-            /* Footer text color */
-            text-align: center;
-            /* Center the footer content */
+            padding: 20px 0; /* Spacing */
+            border-top: 1px solid #ddd; /* Top border */
+            margin-top: 40px; /* Space above footer */
+            font-size: 14px; /* Footer font size */
+            color: #555; /* Footer text color */
+            text-align: center; /* Center footer content */
         }
-
+    
         footer p {
-            margin: 0;
-            /* Remove default margin from paragraph */
+            margin: 0; /* Remove default margin */
         }
-
+    
         footer a {
-            color: inherit;
-            /* Inherit the footer text color */
-            text-decoration: none;
-            /* Remove underline */
-            display: inline-block;
-            /* Change to inline-block for better alignment */
-            margin: 0 10px;
-            /* Add some horizontal spacing between links */
+            color: inherit; /* Inherit text color */
+            text-decoration: none; /* Remove underline */
+            display: inline-block; /* Inline-block for alignment */
+            margin: 0 10px; /* Spacing between links */
         }
-
+    
         footer a:hover {
-            text-decoration: none;
-            /* No underline on hover */
+            text-decoration: none; /* No underline on hover */
         }
-
+    
         .footer-links a {
-            padding: 12px 16px;
-            /* Add padding to increase touch area */
-            display: inline-block;
-            /* Ensure that padding is applied properly */
-            margin: 8px;
-            /* Add margin for spacing between links */
-            text-decoration: none;
-            /* Optional: Remove underline */
-            color: #000;
-            /* Set your desired link color */
+            padding: 12px 16px; /* Increase touch area */
+            margin: 8px; /* Space between links */
+            text-decoration: none; /* Remove underline */
+            color: #000; /* Link color */
         }
-
-
-
+    
+        /* Product List Styles */
         .product-list {
-            margin: 20px 0;
-            /* Space above and below the product list */
+            margin: 20px 0; /* Space above and below */
         }
-
+    
         .product-item {
-            margin-bottom: 15px;
-            /* Space between each product item */
-            padding: 10px;
-            /* Optional: padding around product item */
-            border: 1px solid #ddd;
-            /* Optional: border around each item */
-            border-radius: 5px;
-            /* Optional: rounded corners */
-            background-color: #f9f9f9;
-            /* Optional: background color */
+            margin-bottom: 15px; /* Space between items */
+            padding: 10px; /* Optional padding */
+            border: 1px solid #ddd; /* Optional border */
+            border-radius: 5px; /* Optional rounded corners */
+            background-color: #f9f9f9; /* Optional background */
         }
-
+    
+        /* Learn More Button */
         .learn-more-btn {
             display: inline-block;
-            padding: 5px 15px;
-            /* Button padding */
-            font-size: 16px;
-            /* Button font size */
-            background-color: transparent;
-            /* No background color */
-            color: rgba(23, 99, 29, 1);
-            /* Text color matching the primary color */
-            text-decoration: none;
-            /* No underline */
-            border-radius: 5px;
-            /* Rounded corners */
-            margin-top: 10px;
-            /* Space above the button */
-            border: 1px solid rgba(23, 99, 29, 0.5);
-            /* Light border for less visibility */
-            transition: color 0.3s;
-            /* Smooth transition for hover effect */
+            padding: 5px 15px; /* Button padding */
+            font-size: 16px; /* Button font size */
+            background-color: transparent; /* No background */
+            color: rgba(23, 99, 29, 1); /* Text color */
+            text-decoration: none; /* No underline */
+            border-radius: 5px; /* Rounded corners */
+            margin-top: 10px; /* Space above button */
+            border: 1px solid rgba(23, 99, 29, 0.5); /* Light border */
+            transition: color 0.3s; /* Smooth transition */
         }
-
+    
         .learn-more-btn:hover {
-            color: rgba(23, 99, 29, 1);
-            /* Keep text color consistent on hover */
+            color: rgba(23, 99, 29, 1); /* Keep text color on hover */
         }
-
-
-        .light-cta-btn {
-            display: block;
-            padding: 10px 18px;
-            /* Reduced button size */
-            font-size: 21px;
-            /* Reduced button font size */
-            background-color: #E0E085;
-            color: #000000;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            margin: 20px auto;
-            width: fit-content;
+    
+        /* Media Queries */
+        @media (max-width: 600px) {
+            b {
+                font-size: 18px; /* Smaller font size for mobile */
+            }
+    
+            h1 {
+                font-size: 24px; /* Adjust for mobile */
+                margin: 10px 0; /* Reduce margins */
+            }
+    
+            h2 {
+                font-size: 20px; /* Adjust for mobile */
+                margin: 10px 0; /* Reduce margins */
+            }
+    
+            h3 {
+                font-size: 18px; /* Adjust for mobile */
+            }
+    
+            .price {
+                font-size: 32px; /* Reduce price text size */
+            }
+    
+            p, ul {
+                font-size: 19px; /* Adjust font size for better fit */
+            }
+    
+            .cta-btn, .light-cta-btn {
+                font-size: 18px; /* Adjust button font size */
+                padding: 8px 16px; /* Adjust padding for smaller screens */
+            }
+    
+            .intro-title {
+                font-size: 18px; /* Reduce size for mobile */
+            }
+    
+            .author-container {
+                flex-direction: column; /* Stack image below text */
+                text-align: center; /* Center align */
+            }
+    
+            .author-container img {
+                margin: 10px 0; /* Space between text and image */
+                width: 100px; /* Reduce image size */
+            }
         }
-
-        .light-cta-btn:hover {
-            background-color: #EAEAAE;
+    
+        @media (min-width: 768px) {
+            .content {
+                max-width: 800px; /* Limit width on larger screens */
+            }
         }
     </style>
+     
+
+
 </head>
 
 <body>
@@ -1050,7 +883,7 @@
         <br>
 
 
-        <a href="https://pages.razorpay.com/pl_OJxmdxxlQBQghh/view?product_name=Our%20Construction%20Expenses" target="_blank" class="light-cta-btn">No, Just Buy Building Contractor Guide for ₹199</a>
+        <a href="https://pages.razorpay.com/pl_OtUBaSvw2ZxBcw/view?product_name=Building%20Contractor%20Guide" target="_blank" class="light-cta-btn">No, Just Buy Building Contractor Guide for ₹199</a>
         <br>
         <br>
         <br>
