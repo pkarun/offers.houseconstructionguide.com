@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MZ9SS7TZ');</script>
+<!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Expenses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 5px;
+            background-color: #ffffff;
+            line-height: 1.6;
+            color: #000000;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content {
+            max-width: 1200px;
+            padding: 10px;
+            width: 100%;
+            background-color: transparent;
+            /* Remove background */
+            box-shadow: none;
+            /* Remove box shadow */
+            border-radius: 0;
+            /* Remove border radius */
+            box-sizing: border-box;
+            margin: 0 auto;
+            /* Center the content */
+        }
+
+        h1 {
+            text-align: center;
+            /* Center align the text */
+            margin: 0;
+            /* Remove any margins */
+            padding: 0;
+            /* Remove any padding */
+        }
+
+        h2 {
+            font-size: 28px;
+            margin: 30px 0;
+            /* Adjusted margins */
+            color: #B20606;
+            text-align: center;
+            /* Center alignment */
+        }
+
+        h3 {
+            font-size: 24px;
+            /* Adjust size as needed */
+            margin: 30px 0;
+            /* Adjusted margins */
+            text-align: left;
+            /* Center alignment */
+        }
+
+        b {
+            font-size: 21px;
+            /* Inherit font size from parent */
+        }
+
+        ul,
+        ol {
+            padding-left: 20px;
+            /* Space to the left of the bullets */
+        }
+
+        li {
+            margin-bottom: 10px;
+            /* Space after bullets */
+        }
+
+        p {
+            font-size: 22px;
+            color: #000000;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        ul {
+            font-size: 21px;
+            color: #000000;
+            list-style-type: disc;
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        .cta-btn {
+            display: block;
+            padding: 15px 70px;
+            /* Button size */
+            font-size: 24px;
+            /* Button font size */
+            background-color: #17631D;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        .cta-btn:hover {
+            background-color: #0A290A;
+        }
+
+
+
+        .light-cta-btn {
+            display: block;
+            padding: 10px 18px;
+            /* Reduced button size */
+            font-size: 21px;
+            /* Reduced button font size */
+            background-color: #E0E085;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        .light-cta-btn:hover {
+            background-color: #EAEAAE;
+        }
+
+        .dark-cta-btn {
+            display: block;
+            padding: 10px 18px;
+            /* Button size */
+            font-size: 21px;
+            /* Button font size */
+            background-color: #000000;
+            /* Dark background color */
+            color: #FFFFFF;
+            /* Text color */
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        .dark-cta-btn:hover {
+            background-color: #333333;
+            /* Darker shade on hover */
+        }
+
+        .yellow-cta-btn {
+            display: block;
+            padding: 10px 18px;
+            /* Button size */
+            font-size: 21px;
+            /* Button font size */
+            background-color: #ffbd03;
+            /* Dark background color */
+            color: #000000;
+            /* Text color */
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        .yellow-cta-btn:hover {
+            background-color: #eec043;
+            /* Darker shade on hover */
+        }
+
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 10px;
+            border-left: 5px solid #ffc107;
+        }
+
+        .testimonial {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .intro-title {
+            font-size: 24px;
+            /* Adjust size as needed */
+            color: #B20606;
+            /* Desired color */
+            text-align: center;
+            /* Center the text */
+            margin: 5px 0;
+            /* Space above and below title */
+        }
+
+        .price {
+            font-size: 48px;
+            /* Much bigger font size */
+            text-align: center;
+            color: #B20606;
+            /* Adjust color */
+            margin: 20px 0;
+        }
+
+        .strike {
+            text-decoration: line-through;
+            margin-right: 10px;
+            /* Space between prices */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .author-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .author-container img {
+            width: 150px;
+            /* Adjust size */
+            border-radius: 50%;
+            margin: 0 20px;
+            /* Space around image */
+        }
+
+        footer {
+            padding: 20px 0;
+            /* Padding for spacing */
+            border-top: 1px solid #ddd;
+            /* Top border */
+            margin-top: 40px;
+            /* Space above footer */
+            font-size: 14px;
+            /* Font size for footer text */
+            color: #555;
+            /* Footer text color */
+            text-align: center;
+            /* Center footer content */
+        }
+
+        footer p {
+            margin: 0;
+            /* Remove default margin */
+        }
+
+        footer a {
+            color: inherit;
+            /* Inherit footer text color */
+            text-decoration: none;
+            /* Remove underline */
+            display: inline-block;
+            /* Change to inline-block for better alignment */
+            margin: 0 10px;
+            /* Horizontal spacing between links */
+        }
+
+        footer a:hover {
+            text-decoration: none;
+            /* No underline on hover */
+        }
+
+        .footer-links a {
+            padding: 12px 16px;
+            /* Padding to increase touch area */
+            display: inline-block;
+            /* Ensure padding is applied */
+            margin: 8px;
+            /* Margin for spacing between links */
+            text-decoration: none;
+            /* Optional: Remove underline */
+            color: #000;
+            /* Set desired link color */
+        }
+
+        .price .green-price {
+            color: #28a745;
+            /* Green color */
+        }
+
+        /* Combined media queries */
+        @media (max-width: 600px) {
+            b {
+                font-size: 18px;
+                /* Smaller font size for mobile */
+            }
+
+            .content {
+                padding: 10px;
+                /* Adjust padding for mobile */
+            }
+
+            h1 {
+                font-size: 24px;
+                /* Adjust font size for mobile */
+                margin: 10px 0;
+                /* Reduce margins */
+                text-align: center;
+                /* Center header */
+            }
+
+            h2 {
+                font-size: 20px;
+                /* Adjust font size for mobile */
+                margin: 10px 0;
+                /* Reduce margins */
+            }
+
+            p,
+            ul {
+                font-size: 19px;
+                /* Adjust font size for better fit */
+            }
+
+            .cta-btn {
+                font-size: 18px;
+                /* Adjust button font size */
+                padding: 15px 20px;
+                /* Adjust padding for smaller screens */
+            }
+
+            .intro-title {
+                font-size: 18px;
+                /* Reduce size for mobile */
+            }
+
+            .author-container {
+                flex-direction: column;
+                /* Stack image below text */
+                text-align: center;
+                /* Center align content */
+            }
+
+            .author-container img {
+                margin: 10px 0;
+                /* Add space between text and image */
+                width: 100px;
+                /* Reduce image size for smaller screens */
+            }
+
+            .price {
+                font-size: 32px;
+                /* Reduce size of price text */
+            }
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                max-width: 800px;
+                /* Limits content width on larger screens */
+            }
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ9SS7TZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    <div class="content">
+        <h2 class="intro-title"> </h2>
+        <h1> Our Detailed House Construction Expenses with Product Price details for <a
+                href="#pricing-plans">Just ₹299</a></h1>
+
+        <p>Planning to start your House Construction and wanted to know the detailed House Construction Expenses?</p>
+
+        <p>If that’s your answer is YES. Then this is something for you.</p>
+
+        <p>In this product, I will give access to my Google sheet expenses trackers that I maintained for our house
+            construction.</p>
+
+        <p>It took me <strong><em>3 years</em></strong> to prepare this data. This is <strong><u>Real data</u></strong>.</p>
+
+        <p>It contains almost 98% of the expenses we spent on our second house construction with item level price
+            breakup in Excel sheet. </p>
+        
+        <p>If you need to check any particular price, you can easily search in excel sheet to find its
+            prices in minutes.</p>
+
+        <p>I may remove this product later if I don’t feel like sharing this. But for now, I think it could help
+            someone, so I’m sharing it here.</p>
+
+        <p>These are not some made-up data like what you hear from some house owners who tell 30% to 50% more than what
+            they have spent for their construction.</p>
+
+        <p>It’s real data with product price details as well.</p>
+
+        <p>I’m not going to say you will get all the product prices… sometimes I may miss a few prices. So keep that in
+            mind.</p>
+
+        <p>I maintained and prepared this data for my future use… I never thought I would hand over this data to other
+            users like this. It was maintained for my usage for my understanding purpose.</p>
+
+        <p>This expense doesn’t contain interior design expenses yet because we haven’t done that yet for our house.</p>
+
+        <p>Instead of me talking, let me show what you see inside:</p>
+
+        <br>
+        <a href="#pricing-plans" class="cta-btn">Get Instant Access</a>
+        <br>
+
+
+        <h3>1) Building Overview Details:</h3>
+        <p>In this section, I shared our building details. Without knowing this information, there is no use in seeing
+            the below details. Now you can compare our house construction expenses with your expenses. (Although the
+            price varies a lot based on a lot of factors, you can still keep this as a base rough estimation)</p>
+
+        <img src="https://images.groovetech.io/JIRTucTSxUxSkPN-QNJAKMnqmPysniuFVoAFN4RY6gA/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMDMyMTc0MGY5YjdiMDAxMzg0ZDZlYi8xNzE0ODIxMTAzX2ltYWdlNi5wbmc.webp"
+            alt="Building Overview Details" title="Building Overview Details">
+
+
+        <h3> 2) Main House Construction Expenses Sheet:</h3>
+        <p>This Google sheet contains 700+ expenses related to our house construction with price and quantity details.
+        </p>
+
+        <p>With the help of a filter on Google sheet, you can easily find out the price we paid for specific Categories,
+            Stores, & Items. I even have some notes section to remember details about the transaction.</p>
+
+
+        <img src="https://images.groovetech.io/aoIw4SY10j01HDLmpHC5F1ddGMUJGQT0c8ZQiJ3fyRg/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMDMyMTc0MGY5YjdiMDAxMzg0ZDZlYi8xNzE1MzM2Njg3X2ltYWdlNy5wbmc.webp"
+            alt="Main House Construction Expenses Sheet" title="Main House Construction Expenses Sheet">
+
+
+        <h3> 3) Category Wise Billing Details:</h3>
+        <p>Here you can see for each category how much we spent on our house in a glance.
+        </p>
+
+
+        <img src="https://images.groovetech.io/fAfqUjh0B49a30sLl6X0cMf8pmI-yhKzIELvVPh74SU/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMDMyMTc0MGY5YjdiMDAxMzg0ZDZlYi8xNzE1MzM2ODU3X2ltYWdlNS5wbmc.webp"
+            alt="Category Wise Billing Details" title="Category Wise Billing Details">
+
+        <h3>4) Painting Expenses Details:</h3>
+        <p>In this section, you will see all the painting items we used for our building with quantity and price
+            details.
+        </p>
+
+
+
+        <img src="https://images.groovetech.io/3rD0Rkua7KKndo6ogcscX1YLsYty3Z0KGCWLcYkIkCw/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMDMyMTc0MGY5YjdiMDAxMzg0ZDZlYi8xNzE1MzM2ODk4X2ltYWdlOC5wbmc.webp"
+            alt="Painting Expenses Details" title="Painting Expenses Details">
+
+
+        <h3> 5) Electrical Items used During Construction Details:</h3>
+        <p>These are the list of electrical items we have used during construction time. Like - as electrical molding
+            items, groove cutting time, etc., </p>
+
+        <img src="https://images.groovetech.io/Lb6WFucmT15zWkUY3c7bjKnTHH3e1xlPUL-VbjQnrqY/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMDMyMTc0MGY5YjdiMDAxMzg0ZDZlYi8xNzE1MzM2OTg0X2ltYWdlMTAuanBn.webp"
+            alt="Electrical Items used During Construction Details" title="Electrical Items used During Construction Details">
+
+
+        <h3>6) Electrical Switches and Plates Price Details: </h3>
+        <p>These are the list of electrical items that we have used after doing wiring. We used Hi-Fi brand switches. So
+            all the product prices are relevent to Hi-Fi brand only. </p>
+
+        <img src="https://images.groovetech.io/edbMaI3YAgqoEW7iplEUaYwBf8cnaUcSmloxoKGkeOY/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMDMyMTc0MGY5YjdiMDAxMzg0ZDZlYi8xNzE1MzM2OTQ1X2ltYWdlOS5wbmc.webp"
+            alt="Electrical Switches and Plates Price Details" title="Electrical Switches and Plates Price Details">
+
+
+        <h3>7) Plumbing Materials Price Details: </h3>
+        <p>In this section, I’m sharing our plumbing material’s price details. </p>
+
+
+        <img src="https://images.groovetech.io/lodeFlCwNF6rPCX83dHXXw75-jn8ZDFmtHsa5Qpd8XE/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMDMyMTc0MGY5YjdiMDAxMzg0ZDZlYi8xNzE3MDU3ODk5X2ltYWdlMTIuanBn.webp"
+            alt="Plumbing Materials Price Details" title="Plumbing Materials Price Details">
+
+
+        <h3>8) Toilet and Bedroom Door Details: </h3>
+        <p>I shared the Toilet doors (WPC) and bedroom doors (Micro coated doors) price details in this Excel sheet.
+        </p>
+
+        <img src="https://images.groovetech.io/wmyk3A7cMnG9SALhM9tbT5cJsgdM494NP5mP4HHzzl4/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMDMyMTc0MGY5YjdiMDAxMzg0ZDZlYi8xNzE1MzM3MDgwX2ltYWdlMTEuanBn.webp"
+            alt="Toilet and Bedroom Door Details" title="Toilet and Bedroom Door Details">
+
+
+
+        <h3>9) Kitchen Slabs and Sinks Details: </h3>
+        <p>In this Excel sheet, you will see our kitchen slab price details. </p>
+
+        <img src="https://images.groovetech.io/TEAcF7fhwxbk_iAysQ9lSEyj9tXFCWD-W1AXi32zWP4/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMDMyMTc0MGY5YjdiMDAxMzg0ZDZlYi8xNzE1MzM3MTMwX2ltYWdlLnBuZw.webp"
+            alt="Kitchen Slabs and Sinks Details" title="Kitchen Slabs and Sinks Details">
+
+        <img src="https://images.groovetech.io/1EpWnQs-VNGiKwTP-Xp2rxZ-fypN8cAWphGHKzXN_ZI/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMDMyMTc0MGY5YjdiMDAxMzg0ZDZlYi8xNzE1MzM3MTYwX2ltYWdlMS5wbmc.webp"
+            alt="Kitchen Slabs and Sinks Details" title="Kitchen Slabs and Sinks Details">
+
+
+        <h3>10) Granite and Tiles Details: </h3>
+        <p>This Excel sheet contains details about granite and tiles materials and labor expenses with labor price
+            details.
+
+        </p>
+
+        <img src="https://images.groovetech.io/R8NT0YUgxCgYB6ppyApnngaZjmhEgo6mtS21Yt6g7ws/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMDMyMTc0MGY5YjdiMDAxMzg0ZDZlYi8xNzE1MzM3MjIzX2ltYWdlMTMucG5n.webp"
+            alt="Granite and Tiles Details" title="Granite and Tiles Details">
+
+        <img src="https://images.groovetech.io/wqjPTa_siaBGck1YY9wa1OaziHSw9C-vUXMxCZdxGmY/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMDMyMTc0MGY5YjdiMDAxMzg0ZDZlYi8xNzE1MzM3MjQ3X2ltYWdlNC5qcGc.webp"
+            alt="Granite and Tiles Details" title="Granite and Tiles Details">
+
+        <img src="https://images.groovetech.io/xMwqQQWQJ8V87b3MHjyDOf3ydzRQ60gaOR4Yil9RzkM/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMDMyMTc0MGY5YjdiMDAxMzg0ZDZlYi8xNzE1MzM3Mjc1X2ltYWdlMy5wbmc.webp"
+            alt="Granite and Tiles Details" title="Granite and Tiles Details">
+
+
+
+        <h2>WHO SHOULD BUY THIS?</h2>
+        <ul>
+            <li>Want to know and calculate how much it cost to build your house on average</li>
+            <li>Want to see category-wise construction expenses breakdown for your house construction (based on our
+                expenses)</li>
+            <li>If you have a PC and you know how to use Excel sheet or Google sheet</li>
+        </ul>
+
+        <h2>WHO SHOULD NOT BUY THIS?</h2>
+        <ul>
+            <li>If you don’t know how to use a PC, this is not something for you. It comes in an Excel sheet, so you
+                should be comfortable using Excel sheets.</li>
+            <li>If you plan to use your mobile to consume this content, this is not something for you.</li>
+            <li>If you are expecting too much technical data, this is not something for you.</li>
+            <li>If you are expecting engineer-level expenses data, then this is not something for you.</li>
+            <li>If you need interior expenses cost</li>
+        </ul>
+
+
+        <h2>Meet The Trainer</h2>
+
+
+        <div class="author-container">
+            <img src="https://houseconstructionguide.com/wp-content/uploads/2023/08/arun-300x287.jpg" alt="P K Arun"
+                width="300" height="287" loading="lazy">
+            <div class="author-text">
+                <p>Hi, I'm P K Arun. The guy behind HouseConstructionGuide.com. Our family constructed two houses in
+                    Bangalore, and I thought to share our house construction experience with this blog & guides so users
+                    can avoid those common mistakes they do while constructing their house.</p>
+            </div>
+
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <b>1) What format does this mini course come with?</b>
+        <p>It comes in Excel/Google Sheet which you can edit as per your wish. </p>
+
+        <b>2) What happens after I purchase?</b>
+        <p>You’ll get instant access to download the guide in your email inbox.</p>
+
+        <b>3) Can I consume this content on Mobile devices?</b>
+        <p> No. You cannot.</p>
+
+        <b>4) I Paid, but product not received?</b>
+        <p>
+            If you already paid, then product access details are sent to your email inbox. Please check Inbox/Spam
+            folder
+            for it. If you didn't notice, then search for the email from arun@houseconstructionguide.com to find product
+            access details email.
+           
+        </p>
+        <b>5) If I buy your product can you offer personal support?</b>
+        <p> I can only answer questions related to my products. Not to your specific situations or needs. If you are
+            buying for such personal support, please don’t buy my products.</p>
+
+        <b>6) Do you offer Phone support?</b>
+        <p>No. I don’t offer phone support. The only support I offer is email support. If you have any support
+            questions, you can reach me directly at <a href="mailto:arun@houseconstructionguide.com"
+                style="color: inherit; text-decoration: none;">arun@houseconstructionguide.com</a>. I usually answer all
+            questions within 24 hours.</p>
+
+
+        <b>7) I received PDF file not Excel Sheet</b>
+        <p>Open the PDF file to see all Excel sheet download links.</p>
+
+
+        <b>8) Is Excel/Google Sheet is Editable?</b>
+        <p>Yes. You can edit this Excel/Google Sheet as per your wish. </p>
+
+        <b>9) I have other questions, how can I contact you?</b>
+        <p>You can reach me by emailing <a href="mailto:arun@houseconstructionguide.com"
+                style="color: inherit; text-decoration: none;">arun@houseconstructionguide.com</a>. I’ll be glad to
+            answer any questions you have.</p>
+        <br>
+        <br>
+        <br>
+
+
+
+
+
+        <h2 id="pricing-plans">Pricing Plans</h2>
+        <br>
+        <br>
+        <br>
+        <p class="price" style="text-align: center;">
+        <p class="price"><span class="strike">₹500</span><strong class="green-price">₹299</strong></p>
+
+        </p>
+
+        <p style="text-align: center;">Product Access details instantly sent to your email Inbox/spam after purchasing.
+        </p>
+
+        <br>
+        <br>
+        <br>
+        <a href="https://pages.razorpay.com/pl_OJxmdxxlQBQghh/view?product_name=Our%20Construction%20Expenses"
+            class="cta-btn">Buy Detailed House Construction Expenses for ₹299 </a>
+        <br>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <footer class="footer-links" style="text-align: center;">
+            <div style="padding: 0;">
+                <a href="https://houseconstructionguide.com/privacy-policy/" target="_blank"
+                    style="color: inherit; text-decoration: none; margin-right: 15px;">Privacy Policy</a>
+                <a href="https://houseconstructionguide.com/return-and-refund-policy/" target="_blank"
+                    style="color: inherit; text-decoration: none; margin-right: 15px;">Refund Policy</a>
+                <a href="https://houseconstructionguide.com/about-us/" target="_blank"
+                    style="color: inherit; text-decoration: none; margin-right: 15px;">About Us</a>
+                <a href="https://houseconstructionguide.com/contact-us/" target="_blank"
+                    style="color: inherit; text-decoration: none;">Contact Us</a>
+            </div>
+        </footer>
+
+
+
+        <br>
+
+    </div>
+</body>
+
+
+</html>
