@@ -118,37 +118,22 @@
   <div class="container">
     <h1>House Construction Cost Calculator Built on our Real Construction Data in Excel Sheet </h1>
     <br>  
-
-
-    <form id="subscriptionForm" action="https://pkarun.com/e/subscribe" method="POST" accept-charset="utf-8" target="hiddenIframe" onsubmit="handleRedirect()">
-        <input type="email" name="email" id="email" placeholder="Enter Your Email Here" required><br><br>
-        
+    
+    <form action="https://pkarun.com/e/subscribe" method="POST" accept-charset="utf-8">
+        <input type="email" name="email" id="email" placeholder="Enter Your Email Here" required><br>
+        <br/>
         <div style="display:none;">
-            <label for="hp">HP</label><br>
-            <input type="text" name="hp" id="hp">
+          <label for="hp">HP</label><br>
+          <input type="text" name="hp" id="hp">
         </div>
-        <br>
-        
-        <input type="checkbox" name="confirmation" id="confirmation" required>
-        <label for="confirmation">I agree that when I sign up above, I will receive House Construction related content & offers from P K Arun, and I'm free to unsubscribe at any time.</label><br><br><br>
-        
+  <br> 
+      <input type="checkbox" name="confirmation" id="confirmation" required>
+      <label for="confirmation">I agree that when I sign up above, I will receive House Construction related content & offers from P K Arun, and I'm free to unsubscribe at any time.</label><br><br><br>
         <input type="hidden" name="list" value="57KxkuNAl5tg4poUzw2dJg">
         <input type="hidden" name="subform" value="yes">
-        
         <input type="submit" name="submit" id="submit" value="Send Me Now">
-    </form>
-    
-    <!-- Invisible iframe for form submission -->
-    <iframe name="hiddenIframe" style="display:none;"></iframe>
-    
-    <script>
-        function handleRedirect() {
-            // After the form is submitted, redirect the user
-            setTimeout(function() {
-                window.location.href = "https://offers.houseconstructionguide.com/categorywise-optin/detailed-expenses.html";  // Replace with your actual target URL
-            }, 500);  // Short delay to allow form submission to complete
-        }
-    </script>
+      </form>
+
 
 
   </div>
