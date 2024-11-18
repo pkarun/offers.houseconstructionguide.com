@@ -298,6 +298,33 @@
             return { name, email, phone };
         }
 
+        // Function to subscribe user to Sendy
+        function subscribeToSendy(name, email) {
+            const listID = "9zOvu9DiEfOnakqjUmYfvw";
+            const apiKey = "1qM9pTFlqRpBCQUWTBNP";
+            const sendyUrl = "https://pkarun.com/e/subscribe";
+
+            const params = new URLSearchParams();
+            params.append("name", name);
+            params.append("email", email);
+            params.append("list", listID);
+            params.append("api_key", apiKey);
+
+            fetch(sendyUrl, {
+                method: "POST",
+                body: params,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log("Subscription successful");
+                } else {
+                    console.log("Subscription failed", data);
+                }
+            })
+            .catch(error => console.error("Error subscribing to Sendy:", error));
+        }
+
         // Function to validate input fields
         function validateInputs() {
             let isValid = true;
@@ -363,31 +390,18 @@
         });
 
         form.addEventListener('input', () => {
-            validateInputs();
-            updateOrderDetails();
-        });
-
-        allAccessPass.addEventListener('change', () => {
-            if (!allAccessPass.checked) {
-                bumps.forEach(bump => {
-                    bump.checked = false;
-                });
-            }
-            updateOrderDetails();
-        });
-
-        bumps.forEach(bump => bump.addEventListener('change', updateOrderDetails));
-
-        form.addEventListener('submit', (e) => {
-            if (!validateInputs()) {
-                e.preventDefault();
-                alert('Please correct the highlighted fields before submitting.');
+            if (validateInputs()) {
+                updateOrderDetails();
             }
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            updateOrderDetails();
+        orderNowBtn.addEventListener('click', () => {
+            const { name, email } = getFormData();
+            if (validateInputs()) {
+                subscribeToSendy(name, email); // Subscribe user to Sendy
+            }
         });
+
     </script>
 </body>
 
