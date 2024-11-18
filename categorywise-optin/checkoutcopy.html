@@ -247,21 +247,22 @@
         <a id="orderNowBtn" class="order-btn">Proceed to Buy (₹100)</a>
     </form>
 
+
     <script>
         const form = document.getElementById('orderForm');
         const emailInput = document.getElementById('email');
         const phoneInput = document.getElementById('phone');
         const emailError = document.getElementById('emailError');
         const phoneError = document.getElementById('phoneError');
-
+    
         const bumps = document.querySelectorAll('input[type="checkbox"]:not(#allAccessPass)');
         const allAccessPass = document.getElementById('allAccessPass');
         const orderNowBtn = document.getElementById('orderNowBtn');
         const basePrice = 100;
-
+    
         let emailTouched = false;
         let phoneTouched = false;
-
+    
         const combinations = {
             "allAccessPass": "https://example.com/all-access",
             "bump1": "https://example.com/bump1",
@@ -273,24 +274,24 @@
             "bump1-bump2-bump3": "https://example.com/bump1-bump2-bump3",
             "baseOrder": "https://pages.razorpay.com/pl_Onu48LOEWOHpSi/view?product_name=Cement Pricing Secrets",
         };
-
+    
         // Helper function: Adds "&" to the URL if not already present
         function addAmpersandToUrl(url) {
             return url.endsWith('&') ? url : `${url}&`;
         }
-
+    
         // Helper function: Validate email format
         function validateEmail(email) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return emailRegex.test(email);
         }
-
+    
         // Helper function: Validate phone format
         function validatePhone(phone) {
             const phoneRegex = /^\d{10}$/;
             return phoneRegex.test(phone);
         }
-
+    
         // Function to get form data
         function getFormData() {
             const name = document.getElementById('name').value.trim();
@@ -298,41 +299,39 @@
             const phone = phoneInput.value.trim();
             return { name, email, phone };
         }
-
-
-          // Function to subscribe user to Sendy
-    function subscribeToSendy(name, email, phone) {
-        const listID = "9zOvu9DiEfOnakqjUmYfvw";  // Your list ID
-        const apiKey = "1qM9pTFlqRpBCQUWTBNP";   // Your API Key
-        const sendyUrl = "https://pkarun.com/e/subscribe"; // Your Sendy subscribe URL
-
-        const params = new URLSearchParams();
-        params.append("name", name);       // Send name
-        params.append("email", email);     // Send email
-        params.append("PhoneNumber", phone);  // Send phone number with correct custom field name
-        params.append("list", listID);     // Send list ID
-        params.append("api_key", apiKey);  // Send API Key
-
-        fetch(sendyUrl, {
-            method: "POST",
-            body: params,
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                console.log("Subscription successful");
-            } else {
-                console.log("Subscription failed", data);
-            }
-        })
-        .catch(error => console.error("Error subscribing to Sendy:", error));
-    }
-
-        
+    
+        // Function to subscribe user to Sendy
+        function subscribeToSendy(name, email, phone) {
+            const listID = "9zOvu9DiEfOnakqjUmYfvw";  // Your list ID
+            const apiKey = "1qM9pTFlqRpBCQUWTBNP";   // Your API Key
+            const sendyUrl = "https://pkarun.com/e/subscribe"; // Your Sendy subscribe URL
+    
+            const params = new URLSearchParams();
+            params.append("name", name);       // Send name
+            params.append("email", email);     // Send email
+            params.append("PhoneNumber", phone);  // Send phone number with correct custom field name
+            params.append("list", listID);     // Send list ID
+            params.append("api_key", apiKey);  // Send API Key
+    
+            fetch(sendyUrl, {
+                method: "POST",
+                body: params,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log("Subscription successful");
+                } else {
+                    console.log("Subscription failed", data);
+                }
+            })
+            .catch(error => console.error("Error subscribing to Sendy:", error));
+        }
+    
         // Function to validate input fields
         function validateInputs() {
             let isValid = true;
-
+    
             // Email validation
             if (emailTouched && !validateEmail(emailInput.value)) {
                 emailInput.classList.add('error-border');
@@ -342,7 +341,7 @@
                 emailInput.classList.remove('error-border');
                 emailError.textContent = '';
             }
-
+    
             // Phone validation
             if (phoneTouched && !validatePhone(phoneInput.value)) {
                 phoneInput.classList.add('error-border');
@@ -352,53 +351,63 @@
                 phoneInput.classList.remove('error-border');
                 phoneError.textContent = '';
             }
-
+    
             return isValid;
         }
-
+    
         // Function to update order details
         function updateOrderDetails() {
             let totalPrice = basePrice;
             const formData = getFormData();
             const selectedBumps = Array.from(bumps).filter(bump => bump.checked);
-
+    
             if (allAccessPass.checked) {
                 totalPrice = parseInt(allAccessPass.dataset.price);
                 bumps.forEach(bump => {
-                    bump.checked = true;
-                    bump.disabled = true;
+                    bump.checked = true;  // Select all bumps
+                    bump.disabled = true; // Disable bumps
                 });
                 const url = addAmpersandToUrl(combinations["allAccessPass"]);
                 orderNowBtn.href = `${url}${new URLSearchParams(formData).toString()}`;
                 orderNowBtn.textContent = `Buy HCG All-Access Pass (₹${totalPrice})`;
                 return;
             }
-
-            bumps.forEach(bump => bump.disabled = false);
+    
+            bumps.forEach(bump => bump.disabled = false);  // Enable bumps if All Access is not checked
             selectedBumps.forEach(bump => totalPrice += parseInt(bump.dataset.price));
-
+    
             const selectedKeys = selectedBumps.map(bump => bump.id).sort().join("-");
             const url = addAmpersandToUrl(combinations[selectedKeys] || combinations["baseOrder"]);
             orderNowBtn.textContent = `Proceed to Buy (₹${totalPrice})`;
             orderNowBtn.href = `${url}${new URLSearchParams(formData).toString()}`;
         }
-
+    
+        // Event listener for All Access Pass
+        allAccessPass.addEventListener('change', () => {
+            if (allAccessPass.checked) {
+                bumps.forEach(bump => bump.checked = true);  // Select all bumps when All Access is checked
+            } else {
+                bumps.forEach(bump => bump.checked = false);  // Unselect all bumps when All Access is unchecked
+            }
+            updateOrderDetails();
+        });
+    
         emailInput.addEventListener('blur', () => {
             emailTouched = true;
             validateInputs();
         });
-
+    
         phoneInput.addEventListener('blur', () => {
             phoneTouched = true;
             validateInputs();
         });
-
+    
         form.addEventListener('input', () => {
             if (validateInputs()) {
                 updateOrderDetails();
             }
         });
-
+    
         orderNowBtn.addEventListener('click', () => {
             const { name, email, phone } = getFormData();
             if (validateInputs()) {
@@ -406,6 +415,10 @@
             }
         });
     </script>
+
+
+
+
 </body>
 
 
