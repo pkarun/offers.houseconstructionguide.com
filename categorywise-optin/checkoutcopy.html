@@ -180,7 +180,8 @@
 
 </head>
 
-<body>
+
+    <body>
     <h1 align="center">Enter Your Details</h1>
     <br>
     <form id="orderForm" novalidate>
@@ -299,32 +300,32 @@
         }
 
         // Function to subscribe user to Sendy
-        function subscribeToSendy(name, email) {
-            const listID = "9zOvu9DiEfOnakqjUmYfvw";
-            const apiKey = "1qM9pTFlqRpBCQUWTBNP";
-            const sendyUrl = "https://pkarun.com/e/subscribe";
+          function subscribeToSendy(name, email, phone) {
+        const listID = "9zOvu9DiEfOnakqjUmYfvw";  // Your list ID
+        const apiKey = "1qM9pTFlqRpBCQUWTBNP";   // Your API Key
+        const sendyUrl = "https://pkarun.com/e/subscribe"; // Your Sendy subscribe URL
 
-            const params = new URLSearchParams();
-            params.append("name", name);
-            params.append("email", email);
-            params.append("list", listID);
-            params.append("api_key", apiKey);
+        const params = new URLSearchParams();
+        params.append("name", name);       // Send name
+        params.append("email", email);     // Send email
+        params.append("Phone Number", phone);  // Send phone number with correct field name
+        params.append("list", listID);     // Send list ID
+        params.append("api_key", apiKey);  // Send API Key
 
-            fetch(sendyUrl, {
-                method: "POST",
-                body: params,
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    console.log("Subscription successful");
-                } else {
-                    console.log("Subscription failed", data);
-                }
-            })
-            .catch(error => console.error("Error subscribing to Sendy:", error));
-        }
-
+        fetch(sendyUrl, {
+            method: "POST",
+            body: params,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                console.log("Subscription successful");
+            } else {
+                console.log("Subscription failed", data);
+            }
+        })
+        .catch(error => console.error("Error subscribing to Sendy:", error));
+    }
         // Function to validate input fields
         function validateInputs() {
             let isValid = true;
@@ -396,14 +397,14 @@
         });
 
         orderNowBtn.addEventListener('click', () => {
-            const { name, email } = getFormData();
+            const { name, email, phone } = getFormData();
             if (validateInputs()) {
-                subscribeToSendy(name, email); // Subscribe user to Sendy
+                subscribeToSendy(name, email, phone); // Subscribe user to Sendy with phone number
             }
         });
-
     </script>
 </body>
+
 
 
 </html>
