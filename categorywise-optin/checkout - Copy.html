@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <style>
+        /* General body styling remains unchanged */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* Form group styling */
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        /* General label styling */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 18px;
+            /* Increase font size */
+        }
+
+        /* Input field styling */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 16px;
+            /* Increase padding */
+            font-size: 18px;
+            /* Increase font size */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: all 0.2s ease-in-out;
+            margin-bottom: 20px;
+            /* Add space directly under inputs */
+        }
+
+        /* Floating labels for the custom form */
+        .custom-label-form label {
+            font-size: 18px;
+            /* Increase font size */
+            color: #575757;
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.2s ease-in-out;
+            pointer-events: none;
+        }
+
+        input:focus+label,
+        input:not(:placeholder-shown)+label {
+            top: -16px;
+            /* Adjust position when floating */
+            font-size: 14px;
+            /* Smaller font size for floating labels */
+            color: #007bff;
+        }
+
+        /* Focus styling for input fields */
+        input:focus {
+            border-color: #007bff;
+        }
+
+        /* Bump section styling */
+        .bump {
+            display: flex;
+            align-items: flex-start;
+            margin: 16px 0;
+            /* Increase spacing */
+        }
+
+        .bump input[type="checkbox"] {
+            margin-right: 12px;
+            /* Increase spacing */
+        }
+
+        .bump-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bump label {
+            font-size: 18px;
+            /* Increase font size */
+            font-weight: bold;
+        }
+
+        .bump-info {
+            font-size: 16px;
+            /* Increase font size */
+            color: #555;
+        }
+
+        .bump-content a {
+            text-decoration: none;
+            /* Remove underline */
+            color: #3b71ca;
+            /* Match the text color of the surrounding content */
+        }
+
+        .bump-content a:hover {
+            text-decoration: underline;
+            /* Optional: Add underline on hover for accessibility */
+            color: #2f5aa2;
+            /* Optional: Change color on hover */
+        }
+
+
+        /* Order button styling */
+        .order-btn {
+            display: block;
+            margin-top: 20px;
+            padding: 14px 28px;
+            /* Increase padding */
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 20px;
+            /* Increase font size */
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .order-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Error handling */
+        .error-border {
+            border-color: red !important;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        /* Soft blue highlight for the All-Access Pass bump */
+        #allAccessPass+.bump-content {
+            background-color: #FCF8E3;
+            /* Light blue background */
+            border: 2px solid #f7d00d;
+            /* Blue border */
+            padding: 16px;
+            /* Increase padding */
+            border-radius: 5px;
+        }
+
+        #allAccessPass+.bump-content label {
+            color: #0D0D0D;
+            /* Blue text */
+            font-weight: bold;
+            font-size: 18px;
+            /* Increase font size */
+        }
+
+        #allAccessPass+.bump-content p {
+            color: #0D0D0D;
+            /* Blue description text */
+            font-size: 16px;
+            /* Increase font size */
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 align="center">Enter Your Details</h1>
+    <br>
+    <form id="orderForm" novalidate>
+        <div class="form-group">
+            <div class="custom-label-form">
+                <div class="input-group">
+                    <input type="text" id="name" name="name" placeholder=" " required>
+                    <label for="name">Your Name</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="custom-label-form">
+                <div class="input-group">
+                    <input type="email" id="email" name="email" placeholder=" " required>
+                    <label for="name">Email ID (Product sent to this Email)</label>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="custom-label-form">
+                <div class="input-group">
+                    <input type="tel" id="phone" name="phone" placeholder=" " required>
+                    <label for="name">Enter 10-digit phone number</label>
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <h2 align="center">You might also like </h2>
+        <br>
+        <div class="bump">
+            <input type="checkbox" id="bump1" data-price="500">
+            <div class="bump-content">
+                <label for="bump1">Add Order Bump 1 (+₹500)</label>
+                <p class="bump-info">Description for Bump 1.</p>
+            </div>
+        </div>
+        <div class="bump">
+            <input type="checkbox" id="bump2" data-price="1000">
+            <div class="bump-content">
+                <label for="bump2">Add Order Bump 2 (+₹1000)</label>
+                <p class="bump-info">Description for Bump 2.</p>
+            </div>
+        </div>
+        <div class="bump">
+            <input type="checkbox" id="bump3" data-price="1500">
+            <div class="bump-content">
+                <label for="bump3">Add Order Bump 3 (+₹1500)</label>
+                <p class="bump-info">Description for Bump 3. Learn more about this additional option.</p>
+                <a href="https://example.com/bump3" target="_blank" class="info-link">More details</a>
+            </div>
+        </div>
+        <div class="bump">
+            <input type="checkbox" id="allAccessPass" data-price="5000">
+            <div class="bump-content">
+                <label for="allAccessPass">HCG All-Access Pass (₹5000 - Recommended)</label>
+                <p class="bump-info">Get all my 23+ House construction guides + all future guides for a one-time fee.</p>
+                <a href="https://example.com/bump3" target="_blank" class="info-link">More details</a>
+            </div>
+        </div>
+        <a id="orderNowBtn" class="order-btn">Proceed to Buy (₹100)</a>
+    </form>
+
+    <script>
+        const form = document.getElementById('orderForm');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const emailError = document.getElementById('emailError');
+        const phoneError = document.getElementById('phoneError');
+
+        const bumps = document.querySelectorAll('input[type="checkbox"]:not(#allAccessPass)');
+        const allAccessPass = document.getElementById('allAccessPass');
+        const orderNowBtn = document.getElementById('orderNowBtn');
+        const basePrice = 100;
+
+        let emailTouched = false;
+        let phoneTouched = false;
+
+        const combinations = {
+            "allAccessPass": "https://example.com/all-access",
+            "bump1": "https://example.com/bump1",
+            "bump2": "https://example.com/bump2",
+            "bump3": "https://example.com/bump3",
+            "bump1-bump2": "https://example.com/bump1-bump2",
+            "bump1-bump3": "https://example.com/bump1-bump3",
+            "bump2-bump3": "https://example.com/bump2-bump3",
+            "bump1-bump2-bump3": "https://example.com/bump1-bump2-bump3",
+            "baseOrder": "https://pages.razorpay.com/pl_Onu48LOEWOHpSi/view?product_name=Cement Pricing Secrets",
+        };
+
+        // Helper function: Adds "&" to the URL if not already present
+        function addAmpersandToUrl(url) {
+            return url.endsWith('&') ? url : `${url}&`;
+        }
+
+        // Helper function: Validate email format
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Helper function: Validate phone format
+        function validatePhone(phone) {
+            const phoneRegex = /^\d{10}$/;
+            return phoneRegex.test(phone);
+        }
+
+        // Function to get form data
+        function getFormData() {
+            const name = document.getElementById('name').value.trim();
+            const email = emailInput.value.trim();
+            const phone = phoneInput.value.trim();
+            return { name, email, phone };
+        }
+
+        // Function to validate input fields
+        function validateInputs() {
+            let isValid = true;
+
+            // Email validation
+            if (emailTouched && !validateEmail(emailInput.value)) {
+                emailInput.classList.add('error-border');
+                emailError.textContent = 'Please enter a valid email address.';
+                isValid = false;
+            } else if (emailTouched) {
+                emailInput.classList.remove('error-border');
+                emailError.textContent = '';
+            }
+
+            // Phone validation
+            if (phoneTouched && !validatePhone(phoneInput.value)) {
+                phoneInput.classList.add('error-border');
+                phoneError.textContent = 'Please enter a valid 10-digit phone number.';
+                isValid = false;
+            } else if (phoneTouched) {
+                phoneInput.classList.remove('error-border');
+                phoneError.textContent = '';
+            }
+
+            return isValid;
+        }
+
+        // Function to update order details
+        function updateOrderDetails() {
+            let totalPrice = basePrice;
+            const formData = getFormData();
+            const selectedBumps = Array.from(bumps).filter(bump => bump.checked);
+
+            if (allAccessPass.checked) {
+                totalPrice = parseInt(allAccessPass.dataset.price);
+                bumps.forEach(bump => {
+                    bump.checked = true;
+                    bump.disabled = true;
+                });
+                const url = addAmpersandToUrl(combinations["allAccessPass"]);
+                orderNowBtn.href = `${url}${new URLSearchParams(formData).toString()}`;
+                orderNowBtn.textContent = `Buy HCG All-Access Pass (₹${totalPrice})`;
+                return;
+            }
+
+            bumps.forEach(bump => bump.disabled = false);
+            selectedBumps.forEach(bump => totalPrice += parseInt(bump.dataset.price));
+
+            const selectedKeys = selectedBumps.map(bump => bump.id).sort().join("-");
+            const url = addAmpersandToUrl(combinations[selectedKeys] || combinations["baseOrder"]);
+            orderNowBtn.textContent = `Proceed to Buy (₹${totalPrice})`;
+            orderNowBtn.href = `${url}${new URLSearchParams(formData).toString()}`;
+        }
+
+
+        emailInput.addEventListener('blur', async () => {
+    emailTouched = true;
+
+    if (validateInputs()) {
+        // Get email value
+        const email = emailInput.value.trim();
+        
+        // Check if the email is valid
+        if (validateEmail(email)) {
+            try {
+                // Make an AJAX request to Sendy
+                const response = await fetch('https://pkarun.com/e/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        'name': document.getElementById('name').value.trim(), // User's name
+                        'email': email,                                      // User's email
+                        'list': '9zOvu9DiEfOnakqjUmYfvw',                  // Your Sendy List ID
+                        'boolean': 'true',                                   // Ensures a boolean response
+                    }),
+                });
+
+                // Process the response
+                if (response.ok) {
+                    console.log('User subscribed successfully to Sendy!');
+                } else {
+                    console.error('Failed to subscribe user to Sendy:', await response.text());
+                }
+            } catch (error) {
+                console.error('Error while subscribing user to Sendy:', error);
+            }
+        }
+    }
+    validateInputs();
+});
+
+
+        phoneInput.addEventListener('blur', () => {
+            phoneTouched = true;
+            validateInputs();
+        });
+
+        form.addEventListener('input', () => {
+            validateInputs();
+            updateOrderDetails();
+        });
+
+        allAccessPass.addEventListener('change', () => {
+            if (!allAccessPass.checked) {
+                bumps.forEach(bump => {
+                    bump.checked = false;
+                });
+            }
+            updateOrderDetails();
+        });
+
+        bumps.forEach(bump => bump.addEventListener('change', updateOrderDetails));
+
+        form.addEventListener('submit', (e) => {
+            if (!validateInputs()) {
+                e.preventDefault();
+                alert('Please correct the highlighted fields before submitting.');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateOrderDetails();
+        });
+    </script>
+</body>
+
+
+</html>
