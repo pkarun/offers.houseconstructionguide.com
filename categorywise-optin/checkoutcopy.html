@@ -299,8 +299,9 @@
             return { name, email, phone };
         }
 
-        // Function to subscribe user to Sendy
-          function subscribeToSendy(name, email, phone) {
+
+          // Function to subscribe user to Sendy
+    function subscribeToSendy(name, email, phone) {
         const listID = "9zOvu9DiEfOnakqjUmYfvw";  // Your list ID
         const apiKey = "1qM9pTFlqRpBCQUWTBNP";   // Your API Key
         const sendyUrl = "https://pkarun.com/e/subscribe"; // Your Sendy subscribe URL
@@ -308,7 +309,7 @@
         const params = new URLSearchParams();
         params.append("name", name);       // Send name
         params.append("email", email);     // Send email
-        params.append("Phone Number", phone);  // Send phone number with correct field name
+        params.append("PhoneNumber", phone);  // Send phone number with correct custom field name
         params.append("list", listID);     // Send list ID
         params.append("api_key", apiKey);  // Send API Key
 
@@ -326,6 +327,8 @@
         })
         .catch(error => console.error("Error subscribing to Sendy:", error));
     }
+
+        
         // Function to validate input fields
         function validateInputs() {
             let isValid = true;
