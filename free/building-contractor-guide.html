@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MZ9SS7TZ');</script>
+<!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Contractor Guide </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 5px;
+            background-color: #ffffff;
+            line-height: 1.6;
+            color: #000000;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content {
+            max-width: 1200px;
+            padding: 10px;
+            width: 100%;
+            background-color: transparent;
+            /* Remove background */
+            box-shadow: none;
+            /* Remove box shadow */
+            border-radius: 0;
+            /* Remove border radius */
+            box-sizing: border-box;
+            margin: 0 auto;
+            /* Center the content */
+        }
+
+        h1 {
+            text-align: center;
+            /* Center align the text */
+            margin: 0;
+            /* Remove any margins */
+            padding: 0;
+            /* Remove any padding */
+        }
+
+        h2 {
+            font-size: 28px;
+            margin: 30px 0;
+            /* Adjusted margins */
+            color: #B20606;
+            text-align: center;
+            /* Center alignment */
+        }
+
+        h3 {
+            font-size: 24px;
+            /* Adjust size as needed */
+            margin: 30px 0;
+            /* Adjusted margins */
+            text-align: left;
+            /* Center alignment */
+        }
+
+        b {
+            font-size: 21px;
+            /* Inherit font size from parent */
+        }
+
+        ul,
+        ol {
+            padding-left: 20px;
+            /* Space to the left of the bullets */
+        }
+
+        li {
+            margin-bottom: 10px;
+            /* Space after bullets */
+        }
+
+        p {
+            font-size: 22px;
+            color: #000000;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        ul {
+            font-size: 21px;
+            color: #000000;
+            list-style-type: disc;
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        .cta-btn {
+            display: block;
+            padding: 15px 70px;
+            /* Button size */
+            font-size: 24px;
+            /* Button font size */
+            background-color: #17631D;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        .cta-btn:hover {
+            background-color: #0A290A;
+        }
+
+
+
+        .light-cta-btn {
+            display: block;
+            padding: 10px 18px;
+            /* Reduced button size */
+            font-size: 21px;
+            /* Reduced button font size */
+            background-color: #E0E085;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        .light-cta-btn:hover {
+            background-color: #EAEAAE;
+        }
+
+        .dark-cta-btn {
+            display: block;
+            padding: 10px 18px;
+            /* Button size */
+            font-size: 21px;
+            /* Button font size */
+            background-color: #000000;
+            /* Dark background color */
+            color: #FFFFFF;
+            /* Text color */
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        .dark-cta-btn:hover {
+            background-color: #333333;
+            /* Darker shade on hover */
+        }
+
+        .yellow-cta-btn {
+            display: block;
+            padding: 10px 18px;
+            /* Button size */
+            font-size: 21px;
+            /* Button font size */
+            background-color: #ffbd03;
+            /* Dark background color */
+            color: #000000;
+            /* Text color */
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        .yellow-cta-btn:hover {
+            background-color: #eec043;
+            /* Darker shade on hover */
+        }
+
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 10px;
+            border-left: 5px solid #ffc107;
+        }
+
+        .testimonial {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .intro-title {
+            font-size: 24px;
+            /* Adjust size as needed */
+            color: #B20606;
+            /* Desired color */
+            text-align: center;
+            /* Center the text */
+            margin: 5px 0;
+            /* Space above and below title */
+        }
+
+        .price {
+            font-size: 48px;
+            /* Much bigger font size */
+            text-align: center;
+            color: #B20606;
+            /* Adjust color */
+            margin: 20px 0;
+        }
+
+        .strike {
+            text-decoration: line-through;
+            margin-right: 10px;
+            /* Space between prices */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .author-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .author-container img {
+            width: 150px;
+            /* Adjust size */
+            border-radius: 50%;
+            margin: 0 20px;
+            /* Space around image */
+        }
+
+        footer {
+            padding: 20px 0;
+            /* Padding for spacing */
+            border-top: 1px solid #ddd;
+            /* Top border */
+            margin-top: 40px;
+            /* Space above footer */
+            font-size: 14px;
+            /* Font size for footer text */
+            color: #555;
+            /* Footer text color */
+            text-align: center;
+            /* Center footer content */
+        }
+
+        footer p {
+            margin: 0;
+            /* Remove default margin */
+        }
+
+        footer a {
+            color: inherit;
+            /* Inherit footer text color */
+            text-decoration: none;
+            /* Remove underline */
+            display: inline-block;
+            /* Change to inline-block for better alignment */
+            margin: 0 10px;
+            /* Horizontal spacing between links */
+        }
+
+        footer a:hover {
+            text-decoration: none;
+            /* No underline on hover */
+        }
+
+        .footer-links a {
+            padding: 12px 16px;
+            /* Padding to increase touch area */
+            display: inline-block;
+            /* Ensure padding is applied */
+            margin: 8px;
+            /* Margin for spacing between links */
+            text-decoration: none;
+            /* Optional: Remove underline */
+            color: #000;
+            /* Set desired link color */
+        }
+
+        .price .green-price {
+            color: #28a745;
+            /* Green color */
+        }
+
+        /* Combined media queries */
+        @media (max-width: 600px) {
+            b {
+                font-size: 18px;
+                /* Smaller font size for mobile */
+            }
+
+            .content {
+                padding: 10px;
+                /* Adjust padding for mobile */
+            }
+
+            h1 {
+                font-size: 24px;
+                /* Adjust font size for mobile */
+                margin: 10px 0;
+                /* Reduce margins */
+                text-align: center;
+                /* Center header */
+            }
+
+            h2 {
+                font-size: 20px;
+                /* Adjust font size for mobile */
+                margin: 10px 0;
+                /* Reduce margins */
+            }
+
+            p,
+            ul {
+                font-size: 19px;
+                /* Adjust font size for better fit */
+            }
+
+            .cta-btn {
+                font-size: 18px;
+                /* Adjust button font size */
+                padding: 15px 20px;
+                /* Adjust padding for smaller screens */
+            }
+
+            .intro-title {
+                font-size: 18px;
+                /* Reduce size for mobile */
+            }
+
+            .author-container {
+                flex-direction: column;
+                /* Stack image below text */
+                text-align: center;
+                /* Center align content */
+            }
+
+            .author-container img {
+                margin: 10px 0;
+                /* Add space between text and image */
+                width: 100px;
+                /* Reduce image size for smaller screens */
+            }
+
+            .price {
+                font-size: 32px;
+                /* Reduce size of price text */
+            }
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                max-width: 800px;
+                /* Limits content width on larger screens */
+            }
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ9SS7TZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    <div class="content">
+        <h1> Do you want me to include below guide as well?</h1> <br>
+        <h2 class="intro-title">For New House Construction User:</h2>
+        
+        <h1>Building Contractor Guide: Everything You need to Know about Choosing a Right Building Labor Contractor, Framing Contract Tips, & More <a href="#pricing-plans"> </a></h1>
+
+
+        <p>Are you planning to start your own house construction soon? Then this is something for you…</p>
+
+        <p>Did you know that in house construction, one of the most important steps is choosing the right Contractor?
+        </p>
+
+
+        <p>Building/labour contractors are some of the most important ones, and you should choose them carefully. </p>
+
+        <p>He is the only contractor you will be dealing with from start to end of your house construction. Sometimes,
+            you need them even after your construction to fix some issues here and there.</p>
+
+        <p>If you choose the wrong person, you will suffer a lot financially and mentally.</p>
+
+        <p>I learned some lessons after building two houses with two builders and two different types of contract
+            agreements.</p>
+
+        <p>I will share everything I know and learned in my Building Contractor Guide after constructing <b><u>two
+                    houses.</u></b></p>
+
+        <p>This guide includes everything first-time home builders need to know about picking, evaluating,
+            structuring deals, common construction mistakes, etc., and all the information I shared inside this guide.
+        </p>
+
+        <p>This guide contains 45+ pages of content to cover all the details with relevant images for better
+            understanding. </p>
+
+        <p>These are all easy-to-understand guides; you can cover all these in one sitting. But I recommend first going
+            through roughly once… second time, sit and try to grasp all the points slowly so that you understand
+            properly what it is.</p>
+
+        <p><i><b>Never underestimate the importance of choosing the right building contractor.</i></b></p>
+
+        <p>I have seen and heard many horror stories about Building contractors leaving or creating problems during
+            construction.</p>
+
+        <p>What will you do in such cases?</p>
+
+        <p>Suppose any issues happen with the contractor during the construction work. In that case, it's not easy to
+            choose another contractor because none of them show interest in starting a problematic project.</p>
+
+        <p>Not just that. </p>
+
+        <p>All contractors start the project with full energy… but they don't have the same energy to complete your
+            construction work once they start. </p>
+
+        <p>Why? </p>
+
+        <p>Because now the project is confirmed. Even if a delay happens, you cannot easily change the contractor. </p>
+
+        <p>That's the reason.</p>
+
+        <p>Why do some projects get delayed while others finish as planned? </p>
+
+        <p>It could be due to the building contractor's role as well. </p>
+
+        <p>In this guide, I'm going to share all the important points that all new users need to know.</p>
+        <br>
+        <a href="#pricing-plans" class="cta-btn">Get Instant Access</a>
+        <br>
+
+        <h2>I have personally seen…</h2>
+        <ul>
+            <li>Contractor creating a dispute at the ending stage of the construction (with my dad's friend's house
+                behind our house).</li>
+            <li>Contractor not reachable during the housewarming function (they need even after the function) (near our
+                house, one uncle informed).</li>
+            <li>The contractor stopped working in the middle of construction (at another dad's friend's house & at our
+                plumber's house).</li>
+        </ul>
+
+        <p>…and many such disputes I have personally seen and heard. </p>
+
+        <p>They all happen because the house owner makes mistakes when choosing the right contractor. </p>
+
+        <p>If you want to avoid such issues yourself, here is a guide. Written by someone who has gone through
+            construction experience twice.</p>
+
+        <h2>This guide is not just about choosing the right Building Contractor…</h2>
+
+        <p>It's also about framing Good Contract Terms.</p>
+
+        <p>Just choosing the right building contractor is not enough. </p>
+
+        <p> You have to properly frame the agreement so that you don't get into any dispute with your contractor.</p>
+
+        <p>If yours is the first time and relied on your contractor for the agreement, then you are doing wrong. </p>
+
+        <p>Because the contractor brings an agreement that is favorable to him instead of you.</p>
+
+        <p>How can we prevent such a thing? </p>
+
+        <p>Easy. Even if the contractor brings agreements, mention the points I shared in Contract Tips, and you will be
+            safe.</p>
+
+        <p>These are the few areas where disputes with building contractors usually happen.</p>
+
+        <h2>Building Construction Tips and Lessons</h2>
+
+        <p>I also shared some of the common mistakes many new owners make while constructing their houses unknowingly.
+        </p>
+
+        <p>These are the lessons that I learned after making such mistakes in our house by spending our own money on it.
+        </p>
+
+        <p>Avoiding these mistakes while constructing your house can save you thousands of rupees. You cannot even fix
+            some mistakes if you must do so later once the construction ends.</p>
+
+        <p>If you know all such mistakes at the construction stage, you can avoid making them all…</p>
+
+        <p>65+ such construction mistakes/tips are shared in this guide. </p>
+
+        <p>You will save a lot even if you use any two of them.</p>
+
+        <h2 id="choose-contractor">This Guide will help you...</h2>
+        <ul>
+            <li>Tips to choose the right building contractor #1</li>
+            <li>Qualities you need to know before finalising contractors</li>
+            <li>Ignoring this step while choosing a contractor will slow down work from the contractor’s side #1.4</li>
+            <li>The simple test to check the quality work of the contractor and his team #1.6</li>
+            <li>Ask these questions to his work-in-progress building owners to know about the contractor #1.7</li>
+            <li>Remember this tip to reach your contractor in case of an emergency #1.8</li>
+            <li>How one skilled contractor tried to collect cash upfront by small changes he made in the labour payment
+                structure #1.9</li>
+            <li>Our first and second building contract terms #2.1, #2.2</li>
+            <li>How I would structure my building contract terms now #2.3</li>
+            <li>Discuss these things with your contractor before finalising the deal #3</li>
+            <li>Don’t forget to discuss this with your building contractor, which is related to plumbing work, or else
+                they may say it’s not ours. #3.6</li>
+            <li>Understand this point to stop losing money #3.10</li>
+            <li>A contract term that you should know to save a lot of money in building contract labour expenses. This
+                tip saved us ₹2,78,760 #3.13</li>
+            <li>Best time to discuss contract #3.14</li>
+            <li>The main mistake we made in our first building, which resulted in paying more than we discussed in the
+                contract terms #4.2</li>
+            <li>Few labour tips</li>
+            <li>Follow this Room Chajja tip shared by our engineer, and you will remember me after completing your
+                building. #4.20</li>
+            <li>Things you need to remember if you plan to install a solar water heater #4.37</li>
+            <li>Want more water pressure in taps? remember this tip when building a house #4.39</li>
+            <li>Forget this tip; your staircase will convert into a waterfall during the rainy season #4.40</li>
+            <li>Install wall drop? then remember to do this where Waldrop will come #4.41</li>
+            <li>Don’t do MS/SS work before finishing this task, or else you will regret it later #4.42</li>
+            <li>Make sure to follow these tips when plastering, or else you will end up paying more to your painting
+                contractor #4.43</li>
+            <li>In the process of finishing plastering work faster, don’t make this common mistake done by most house
+                owners #4.44</li>
+            <li>Need to Place washing machine on the terrace? then you need to know this tip before you do so #4.45</li>
+            <li>If you are installing sliding windows and you want granite platform around windows… then don’t make this
+                mistake #4.46</li>
+            <li>If you install granite flooring and want to carry a lengthy slab to the first and above floors… It would
+                be best if you kept this in mind while building walls #4.47</li>
+            <li>Things you need to remember while building a parapet wall #4.53, 4.54</li>
+        </ul>
+        <h2>...and so much more!</h2>
+
+        <h2>WHO IS THIS TRAINING FOR?</h2>
+        <ul>
+            <li>If you have not yet started your house construction work</li>
+            <li>You still need to finalise your building labour contractor</li>
+            <li>You need to understand the In and out of labour contract</li>
+            <li>You need to structure a better agreement with your contractor</li>
+            <li>You need to save money in labour contract</li>
+            <li>Knowing some of the construction best practices</li>
+        </ul>
+
+        <h2>WHO IS THIS TRAINING NOT FOR?</h2>
+        <ul>
+            <li>You already finalised your building contractor & signed the contract agreement.</li>
+            <li>If you are expecting a fully polished guide</li>
+            <li>You are a building contractor and not a user who is planning to start construction.</li>
+        </ul>
+
+        <h2>Meet The Trainer</h2>
+
+
+        <div class="author-container">
+            <img src="https://houseconstructionguide.com/wp-content/uploads/2023/08/arun-300x287.jpg" alt="P K Arun"
+                width="300" height="287" loading="lazy">
+            <div class="author-text">
+                <p>Hi, I'm P K Arun. The guy behind HouseConstructionGuide.com. Our family constructed two houses in
+                    Bangalore, and I thought to share our house construction experience with this blog & guides so users
+                    can avoid those common mistakes they do while constructing their house.</p>
+            </div>
+
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <b>1) What format does this mini course come with?</b>
+        <p>It's a mini text-based digital course delivered in a PDF format.</p>
+
+        <b>2) What happens after I purchase?</b>
+        <p>You’ll get instant access to download the guide in your email inbox.</p>
+
+        <b>3) I Paid, but product not received?</b>
+        <p>
+            If you already paid, then product access details are sent to your email inbox. Please check Inbox/Spam
+            folder
+            for it. If you didn't notice, then search for the email from arun@houseconstructionguide.com to find product
+            access details email. 
+        </p>
+
+
+        <b>4) I have other questions, how can I contact you?</b>
+        <p>You can reach me by emailing <a href="mailto:arun@houseconstructionguide.com"
+                style="color: inherit; text-decoration: none;">arun@houseconstructionguide.com</a>. I’ll be glad to
+            answer any questions you have.</p>
+        <br>
+        <br>
+        <br>
+
+
+
+
+
+        <h2 id="pricing-plans">Pricing Plans</h2>
+        <br>
+        <br>
+        <br><!--
+        <p class="price" style="text-align: center;">
+        <p class="price"><span class="strike">₹1000 </span><strong class="green-price">₹499</strong></p>
+
+        </p>
+-->
+
+
+        <br>
+        <br>
+        <br>
+        <a href="hcg-all-access-pass.html"
+            class="cta-btn">Buy Expenses + Building Labour Contractor Agreement Templeate + Guide for ₹897</a>
+        <br>
+
+        <br>
+        <a href="hcg-all-access-pass.html" class="light-cta-btn">Buy Expenses + Labour Contract Agreement Template for ₹598</a>
+        <br>
+        <br>
+        <a href="hcg-all-access-pass.html" class="yellow-cta-btn">Just Buy Detailed Expenses for ₹299 </a>
+        <br>
+        <br>
+        <p style="text-align: center; font-size:medium;">Product Access details instantly sent to your email Inbox or
+            Spam folder after
+            purchasing.</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <footer class="footer-links" style="text-align: center;">
+            <div style="padding: 0;">
+                <a href="https://houseconstructionguide.com/privacy-policy/" target="_blank"
+                    style="color: inherit; text-decoration: none; margin-right: 15px;">Privacy Policy</a>
+                <a href="https://houseconstructionguide.com/return-and-refund-policy/" target="_blank"
+                    style="color: inherit; text-decoration: none; margin-right: 15px;">Refund Policy</a>
+                <a href="https://houseconstructionguide.com/about-us/" target="_blank"
+                    style="color: inherit; text-decoration: none; margin-right: 15px;">About Us</a>
+                <a href="https://houseconstructionguide.com/contact-us/" target="_blank"
+                    style="color: inherit; text-decoration: none;">Contact Us</a>
+            </div>
+        </footer>
+
+
+
+        <br>
+
+    </div>
+</body>
+
+
+</html>
