@@ -87,24 +87,38 @@
       background-color: #0056b3;
     }
   
-    /* Mobile responsiveness */
-    @media screen and (max-width: 600px) {
-      h1 {
-        font-size: 28px; /* Smaller heading on mobile */
-      }
-  
-      p,
-      li {
-        font-size: 18px; /* Slightly smaller font for readability */
-      }
-  
+/* Mobile responsiveness */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 28px; /* Smaller heading on mobile */
+  }
+
+  p,
+  li {
+    font-size: 18px; /* Slightly smaller font for readability */
+  }
+
+  input[type="text"],
+  input[type="email"],
   input[type="submit"] {
-    width: calc(100% - 20px); /* Make button take full width on mobile */
+    width: calc(100% - 20px); /* Unified width for inputs and button */
     padding: 14px; /* Adjust padding for better touch experience */
-    font-size: 18px; /* Larger font size for the button */
-    text-align: center; /* Ensure button text is centered */
-      }
-    }
+    font-size: 18px; /* Larger font size for better readability */
+    text-align: center; /* Ensure text is centered */
+    box-sizing: border-box; /* Prevent padding from exceeding width */
+  }
+
+  input[type="submit"] {
+    background-color: #007bff; /* Retain button styling */
+    color: #fff;
+    cursor: pointer;
+    border: none;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+}
 
 
     .benefits {
