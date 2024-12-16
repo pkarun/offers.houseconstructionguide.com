@@ -1141,17 +1141,95 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+ 
+
+
+
 
         <h2 id="pricing-plans">Pricing Plans</h2>
         <br>
         <br>
 
-        <br>
+        <!--  <br>
         <br>
         <a href="https://pages.razorpay.com/pl_OPJxiyzXN2lLQ4/view?product_name=HCG%20All-Access%20Pass" target="_blank"
             class="cta-btn">Get All the Above & Future Construction Guides for Just <span class="strike">₹5000</span>₹2999</a>
-            <p style="text-align: center;">(HCG All-Access Pass)</p>
-    <!-- <br>
+            <p style="text-align: center;">(HCG All-Access Pass)</p>-->
+
+
+
+
+        <div class="timer" id="timer">
+            Price Returns Original Price of ₹5,000 In: <span id="countdown"></span>
+
+
+            <!-- <div id="bonus-section" class="bonus-highlight">
+                <div class="bonus-header">
+                    🎉 Bonus Just for You!
+                </div>
+                <p class="bonus-details">
+                    Get Our Detailed House Construction Expenses with Product Price Details (Worth ₹500) if you Purchase Before Timer Expires! 
+                </p>
+
+            </div>-->
+
+            <br>
+        </div>
+        <br>
+        <br>
+        <!--offer button-->
+        <a href="https://pages.razorpay.com/pl_OPJxiyzXN2lLQ4/view?product_name=HCG%20All-Access%20Pass" class="cta-btn"
+            id="bonus-btn">Buy All-Access Pass for Just ₹2,999</a> 
+
+        <!--offer expired button-->
+        <a href="https://pages.razorpay.com/pl_J8Qiis6rEXVySK/view?product_name=HCG%20All-Access%20Pass"
+            class="cta-btn hidden" id="default-btn">Buy All-Access Pass for ₹5,000</a> 
+
+
+        <script>
+            const countdownElement = document.getElementById('countdown');
+            const timerElement = document.getElementById('timer');
+            const bonusButton = document.getElementById('bonus-btn');
+            const defaultButton = document.getElementById('default-btn');
+
+            // Timer Settings
+            const countdownDuration = 3 * 60 * 60 * 1000; // 30 minutes in milliseconds
+            const timerKey = 'timerExpiration';
+
+            // Get the stored expiration time or set a new one
+            let expirationTime = localStorage.getItem(timerKey);
+            if (!expirationTime) {
+                expirationTime = Date.now() + countdownDuration;
+                localStorage.setItem(timerKey, expirationTime);
+            }
+
+            // Update the timer
+            function updateTimer() {
+                const now = Date.now();
+                const timeLeft = expirationTime - now;
+
+                if (timeLeft > 0) {
+                    const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    countdownElement.textContent = `${hours.toString().padStart(2, '0')} ${minutes.toString().padStart(2, '0')} ${seconds.toString().padStart(2, '0')}  `;
+                    //countdownElement.textContent = `${hours.toString().padStart(2, '0')} Hr ${minutes.toString().padStart(2, '0')} Min ${seconds.toString().padStart(2, '0')} Sec`;
+                } else {
+                    // Timer expired
+                    clearInterval(timerInterval);
+                    timerElement.classList.add('hidden'); // Hide the timer
+                    bonusButton.classList.add('hidden'); // Hide the bonus button
+                    defaultButton.classList.remove('hidden'); // Show the default button
+                }
+            }
+
+            // Check the timer every second
+            const timerInterval = setInterval(updateTimer, 1000);
+            updateTimer(); // Initial call to update immediately
+        </script>
+
+
+        <!-- <br>
         <a href="https://pages.razorpay.com/pl_OtUBaSvw2ZxBcw/view?product_name=Building%20Contractor%20Guide"
         target="_blank" class="yellow-cta-btn">Buy Labour Contract Agreement Template + Guide for ₹599</a>
         <br>
@@ -1160,7 +1238,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <br>
 
         -->
-        <p style="text-align: center; font-size:medium;">Product Access details instantly sent to your email Inbox or Spam folder after
+        <br>
+
+        <p style="text-align: center; font-size:medium;">Product Access details instantly sent to your email Inbox or
+            Spam folder after
             purchasing.</p>
         <br>
         <br>
