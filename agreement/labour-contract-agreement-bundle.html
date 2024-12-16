@@ -662,8 +662,10 @@
         <br>
         </div>
 
+        <!--offer button-->
         <a href="https://pages.razorpay.com/pl_PN8J3o5ZoTM3mY/view?product_name=Agreements%20and%20Expenses" class="cta-btn" id="bonus-btn">Buy All 7 Labour Contract Agreement Template + Detailed House Construction Expenses for Just ₹999</a>
 
+        <!--offer expired button-->
         <a href="detailed-expenses-direct.html" class="cta-btn hidden" id="default-btn">Buy All 7 Labour Contract Agreement Template for ₹999</a>
    
 
@@ -672,27 +674,29 @@
             const timerElement = document.getElementById('timer');
             const bonusButton = document.getElementById('bonus-btn');
             const defaultButton = document.getElementById('default-btn');
-        
+
             // Timer Settings
             const countdownDuration = 300 * 6000; // 30 minutes in milliseconds
             const timerKey = 'timerExpiration';
-        
+
             // Get the stored expiration time or set a new one
             let expirationTime = localStorage.getItem(timerKey);
             if (!expirationTime) {
                 expirationTime = Date.now() + countdownDuration;
                 localStorage.setItem(timerKey, expirationTime);
             }
-        
+
             // Update the timer
             function updateTimer() {
                 const now = Date.now();
                 const timeLeft = expirationTime - now;
-        
+
                 if (timeLeft > 0) {
-                    const minutes = Math.floor(timeLeft / 60000);
-                    const seconds = Math.floor((timeLeft % 60000) / 1000);
-                    countdownElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                    const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    countdownElement.textContent = `${hours.toString().padStart(2, '0')} ${minutes.toString().padStart(2, '0')} ${seconds.toString().padStart(2, '0')}  `;
+                    //countdownElement.textContent = `${hours.toString().padStart(2, '0')} Hr ${minutes.toString().padStart(2, '0')} Min ${seconds.toString().padStart(2, '0')} Sec`;
                 } else {
                     // Timer expired
                     clearInterval(timerInterval);
@@ -701,7 +705,7 @@
                     defaultButton.classList.remove('hidden'); // Show the default button
                 }
             }
-        
+
             // Check the timer every second
             const timerInterval = setInterval(updateTimer, 1000);
             updateTimer(); // Initial call to update immediately
