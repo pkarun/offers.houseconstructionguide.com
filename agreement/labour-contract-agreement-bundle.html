@@ -443,6 +443,92 @@
         font-size: 20px;
         color: #333;
     }
+
+
+     
+        /* Adjust for small screens */
+        @media (max-width: 600px) {
+            .sticky-banner {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Other Existing Styles */
+        .hidden {
+            display: none;
+        }
+
+
+
+
+        .sticky-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            /* Ensures the banner stays within the browser width */
+            background-color: #d9534f;
+            /* Red background */
+            color: #fff;
+            text-align: center;
+            padding: 10px 15px;
+            /* Adjust padding */
+            box-sizing: border-box;
+            /* Includes padding in the width */
+            display: flex;
+            justify-content: space-between;
+            /* Align elements with space in between */
+            align-items: center;
+            /* Vertically center content */
+            flex-wrap: wrap;
+            /* Ensure responsiveness */
+            z-index: 9999;
+            /* Ensures the banner stays on top */
+        }
+
+        .sticky-banner .cta-button {
+            background-color: #fff;
+            color: #d9534f;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, color 0.3s;
+            margin: 5px 0;
+            /* Adds spacing for smaller screens */
+        }
+
+        .sticky-banner .cta-button:hover {
+            background-color: #fff;
+            color: #d9534f;
+        }
+
+
+
+
+
+        /* Sticky Banner */
+        .sticky-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #d9534f;
+            color: #fff;
+            text-align: center;
+            padding: 10px 15px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .hidden {
+            display: none !important;
+        }
         
     </style>
 
@@ -632,51 +718,60 @@
 
 
 
-
-
+      <!-- Existing Timer Section -->
         <h2 id="pricing-plans">Pricing Plans</h2>
         <br>
 
         <p class="price" style="text-align: center;">
         <p class="price"><span class="strike">₹2,093</span><strong class="green-price">₹999 </strong></p>
-
-        </p>   
+        </p>
 
         <br>
 
-
         <div class="timer" id="timer">
             Bonus Expires In: <span id="countdown"></span>
-        
-        
             <div id="bonus-section" class="bonus-highlight">
                 <div class="bonus-header">
                     🎉 Bonus Just for You!
                 </div>
                 <p class="bonus-details">
-                    Get Our Detailed House Construction Expenses with Product Price Details (Worth ₹500) if you Purchase Before Timer Expires! 
+                    Get Our Detailed House Construction Expenses with Product Price Details (Worth ₹500) if you Purchase
+                    Before Timer Expires!
                 </p>
-
             </div>
-        
-        <br>
+            <br>
         </div>
 
-        <!--offer button-->
-        <a href="https://pages.razorpay.com/pl_PN8J3o5ZoTM3mY/view?product_name=Agreements%20and%20Expenses" class="cta-btn" id="bonus-btn">Buy All 7 Labour Contract Agreement Template + Detailed House Construction Expenses for Just ₹999</a>
+        <a href="https://pages.razorpay.com/pl_PN8J3o5ZoTM3mY/view?product_name=Agreements%20and%20Expenses"
+            class="cta-btn" id="bonus-btn">Buy All 7 Labour Contract Agreement Template + Detailed House Construction
+            Expenses for Just ₹999</a>
 
-        <!--offer expired button-->
-        <a href="detailed-expenses-direct.html" class="cta-btn hidden" id="default-btn">Buy All 7 Labour Contract Agreement Template for ₹999</a>
-   
+        <a href="detailed-expenses-direct.html" class="cta-btn hidden" id="default-btn">Buy All 7 Labour Contract
+            Agreement Template for ₹999</a>
+
+        <!-- Sticky Banner with Timer -->
+        <div class="sticky-banner" id="sticky-banner">
+            <div>
+                <strong>Bonus Expires In: <span id="countdown-banner"></span></strong>
+            </div>
+            <a href="#pricing-plans"
+                class="cta-button">Get the Bonus Now</a>
+
+        </div>
+
+
+
 
         <script>
             const countdownElement = document.getElementById('countdown');
+            const countdownBanner = document.getElementById('countdown-banner'); // For sticky banner
             const timerElement = document.getElementById('timer');
-            const bonusButton = document.getElementById('bonus-btn');
-            const defaultButton = document.getElementById('default-btn');
+            const stickyBanner = document.getElementById('sticky-banner'); // Sticky banner element
+            const bonusButton = document.getElementById('bonus-btn'); // Bonus button
+            const defaultButton = document.getElementById('default-btn'); // Default button
 
             // Timer Settings
-            const countdownDuration = 300 * 6000; // 30 minutes in milliseconds
+            const countdownDuration = 30 * 60 * 1000; // 30 minutes in milliseconds
             const timerKey = 'timerExpiration';
 
             // Get the stored expiration time or set a new one
@@ -686,7 +781,7 @@
                 localStorage.setItem(timerKey, expirationTime);
             }
 
-            // Update the timer
+            // Function to update the timer display
             function updateTimer() {
                 const now = Date.now();
                 const timeLeft = expirationTime - now;
@@ -695,37 +790,33 @@
                     const hours = Math.floor(timeLeft / (1000 * 60 * 60));
                     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-                    countdownElement.textContent = `${hours.toString().padStart(2, '0')} ${minutes.toString().padStart(2, '0')} ${seconds.toString().padStart(2, '0')}  `;
-                    //countdownElement.textContent = `${hours.toString().padStart(2, '0')} Hr ${minutes.toString().padStart(2, '0')} Min ${seconds.toString().padStart(2, '0')} Sec`;
+                    const formattedTime = `${hours.toString().padStart(2, '0')} Hr ${minutes.toString().padStart(2, '0')} Min ${seconds.toString().padStart(2, '0')} Sec`;
+
+                    countdownElement.textContent = formattedTime; // Main timer display
+                    countdownBanner.textContent = formattedTime; // Sticky banner timer display
                 } else {
-                    // Timer expired
+                    // Timer expired: Stop timer updates and hide relevant elements
                     clearInterval(timerInterval);
-                    timerElement.classList.add('hidden'); // Hide the timer
-                    bonusButton.classList.add('hidden'); // Hide the bonus button
-                    defaultButton.classList.remove('hidden'); // Show the default button
+
+                    timerElement.classList.add('hidden');      // Hide the main timer
+                    bonusButton.classList.add('hidden');       // Hide the bonus button
+                    stickyBanner.classList.add('hidden');      // Hide the sticky banner
+                    defaultButton.classList.remove('hidden');  // Show the default button
                 }
             }
 
-            // Check the timer every second
+            // Start the timer and update every second
             const timerInterval = setInterval(updateTimer, 1000);
-            updateTimer(); // Initial call to update immediately
+            updateTimer(); // Initial call to ensure immediate update
         </script>
-        
 
 
 
-       <!-- <a href="https://pages.razorpay.com/pl_PN8JYsjikjnaM3/view?product_name=Agreement%20Combo" class="cta-btn">Buy All 7 Labour Contract Agreement Template for ₹999 </a>
-        <br>-->
-     
-           <p style="text-align: center; font-size:medium;">Product Access details instantly sent to your email Inbox or
-            Spam folder after
-            purchasing.</p>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+
+
+
+        <p style="text-align: center; font-size:medium;">Product Access details instantly sent to your email Inbox or
+            Spam folder after purchasing.</p>
 
         <footer class="footer-links" style="text-align: center;">
             <div style="padding: 0;">
@@ -739,13 +830,6 @@
                     style="color: inherit; text-decoration: none;">Contact Us</a>
             </div>
         </footer>
-
-
-
-        <br>
-
-    </div>
 </body>
-
 
 </html>
