@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -411,19 +410,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
+        
+
+        
+        
         #bonus {
-        font-size: 20px;
-        color: #B20606;
-        text-align: center;
-        margin-bottom: 20px;
-    }
+            font-size: 20px;
+            color: #B20606;
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    .hidden {
-        display: none;
-    }
+        .hidden {
+            display: none;
+        }
 
 
-    .timer {
+        .timer {
             text-align: center;
             font-size: 30px;
             color: #B20606;
@@ -434,28 +437,123 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
         .bonus-highlight {
-        background-color: #f9f8ff; /* Light purple background */
-        border: 2px solid #6a5acd; /* Medium purple border */
-        border-radius: 8px;
-        padding: 20px;
-        margin: 20px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
-        text-align: center;
-    }
+            background-color: #f9f8ff;
+            /* Light purple background */
+            border: 2px solid #6a5acd;
+            /* Medium purple border */
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Soft shadow */
+            text-align: center;
+        }
 
-    .bonus-header {
-        font-size: 24px;
-        font-weight: bold;
-        color: #4b0082; /* Dark purple */
-        margin-bottom: 10px;
-    }
+        .bonus-header {
+            font-size: 33px;
+            font-weight: bold;
+            color: #4b0082;
+            /* Dark purple */
+            margin-bottom: 10px;
+        }
 
-    .bonus-details {
-        font-size: 20px;
-        color: #333;
-    }
+        .bonus-details {
+            font-size: 20px;
+            color: #333;
+        }
 
 
+
+
+        /* Adjust for small screens */
+        @media (max-width: 600px) {
+            .sticky-banner {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Other Existing Styles */
+        .hidden {
+            display: none;
+        }
+
+
+
+
+        .sticky-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            /* Ensures the banner stays within the browser width */
+            background-color: #d9534f;
+            /* Red background */
+            color: #fff;
+            text-align: center;
+            padding: 10px 15px;
+            /* Adjust padding */
+            box-sizing: border-box;
+            /* Includes padding in the width */
+            display: flex;
+            justify-content: space-between;
+            /* Align elements with space in between */
+            align-items: center;
+            /* Vertically center content */
+            flex-wrap: wrap;
+            /* Ensure responsiveness */
+            z-index: 9999;
+            /* Ensures the banner stays on top */
+        }
+
+        .sticky-banner .cta-button {
+            background-color: #fff;
+            color: #d9534f;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, color 0.3s;
+            margin: 5px 0;
+            /* Adds spacing for smaller screens */
+        }
+
+        .sticky-banner .cta-button:hover {
+            background-color: #fff;
+            color: #d9534f;
+        }
+
+
+
+
+
+        /* Sticky Banner */
+        .sticky-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #d9534f;
+            color: #fff;
+            text-align: center;
+            padding: 10px 15px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+
+
+        .centered-text {
+            text-align: center;
+        }
 
     </style>
 
@@ -483,8 +581,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <br>
 <br>
 <br><br>
-<br>
-        <h1> Limited Time Offer: Get 24+ House Construction Guides + All Future Guides at One Time Fee </h1>  
+<hr>
+        <h2> Limited Time Offer: Get 24+ House Construction Guides + All Future Guides at a Special One Time Fee </h2>  
             
         <p style="text-align: center; font-size:medium;"> </p>
 
@@ -1191,7 +1289,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-        <h2 id="pricing-plans">Pricing Plans</h2>
+        <h1 id="pricing-plans">Pricing Plans</h1>
         <br>
         <br>
 
@@ -1203,9 +1301,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-            
+
         <div class="timer" id="timer">
-            Special Price Increases to ₹5,000 In: <span id="countdown"></span>
+            <h3 style="text-align: center; color: black;">Offer Price Changes to Original Price of <u>₹5,000</u> In:</h3>
+            <br>
+            <span id="countdown"></span>
         
         
              <!-- <div id="bonus-section" class="bonus-highlight">
@@ -1220,53 +1320,73 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <br>
         </div>
-        <br>
-        <br>
-        <a href="https://pages.razorpay.com/pl_OPJxiyzXN2lLQ4/view?product_name=HCG%20All-Access%20Pass" class="cta-btn" id="bonus-btn">Buy All-Access Pass for Just ₹2,999</a>
+        <br>    
+    
+        <a href="https://pages.razorpay.com/pl_OPJxiyzXN2lLQ4/view?product_name=HCG%20All-Access%20Pass"
+        class="cta-btn" id="bonus-btn">Buy All-Access Pass for Just ₹2,999</a>
 
-        <a href="https://pages.razorpay.com/pl_J8Qiis6rEXVySK/view?product_name=HCG%20All-Access%20Pass" class="cta-btn hidden" id="default-btn">Buy All-Access Pass for ₹5,000</a>
-   
+    <a href="https://pages.razorpay.com/pl_J8Qiis6rEXVySK/view?product_name=HCG%20All-Access%20Pass" class="cta-btn hidden" id="default-btn">Buy All-Access Pass for ₹5,000</a>
 
+    <!-- Sticky Banner with Timer -->
+    <div class="sticky-banner" id="sticky-banner">
+        <div>
+            <strong>Offer Expires In: <span id="countdown-banner"></span></strong>
+        </div>
+        <a href="#pricing-plans"
+            class="cta-button">View Offer Now</a>
+
+    </div>
+
+
+ 
         <script>
             const countdownElement = document.getElementById('countdown');
+            const countdownBanner = document.getElementById('countdown-banner'); // For sticky banner
             const timerElement = document.getElementById('timer');
-            const bonusButton = document.getElementById('bonus-btn');
-            const defaultButton = document.getElementById('default-btn');
-        
+            const stickyBanner = document.getElementById('sticky-banner'); // Sticky banner element
+            const bonusButton = document.getElementById('bonus-btn'); // Bonus button
+            const defaultButton = document.getElementById('default-btn'); // Default button
+
             // Timer Settings
-            const countdownDuration = 300 * 20000; // 30 minutes in milliseconds
+            const countdownDuration = 43200000; // 30 minutes in milliseconds
             const timerKey = 'timerExpiration';
-        
+
             // Get the stored expiration time or set a new one
             let expirationTime = localStorage.getItem(timerKey);
             if (!expirationTime) {
                 expirationTime = Date.now() + countdownDuration;
                 localStorage.setItem(timerKey, expirationTime);
             }
-        
-            // Update the timer
+
+            // Function to update the timer display
             function updateTimer() {
                 const now = Date.now();
                 const timeLeft = expirationTime - now;
-        
+
                 if (timeLeft > 0) {
-                    const minutes = Math.floor(timeLeft / 60000);
-                    const seconds = Math.floor((timeLeft % 60000) / 1000);
-                    countdownElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                    const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    const formattedTime = `${hours.toString().padStart(2, '0')} Hr ${minutes.toString().padStart(2, '0')} Min ${seconds.toString().padStart(2, '0')} Sec`;
+
+                    countdownElement.textContent = formattedTime; // Main timer display
+                    countdownBanner.textContent = formattedTime; // Sticky banner timer display
                 } else {
-                    // Timer expired
+                    // Timer expired: Stop timer updates and hide relevant elements
                     clearInterval(timerInterval);
-                    timerElement.classList.add('hidden'); // Hide the timer
-                    bonusButton.classList.add('hidden'); // Hide the bonus button
-                    defaultButton.classList.remove('hidden'); // Show the default button
+
+                    timerElement.classList.add('hidden');      // Hide the main timer
+                    bonusButton.classList.add('hidden');       // Hide the bonus button
+                    stickyBanner.classList.add('hidden');      // Hide the sticky banner
+                    defaultButton.classList.remove('hidden');  // Show the default button
                 }
             }
-        
-            // Check the timer every second
+
+            // Start the timer and update every second
             const timerInterval = setInterval(updateTimer, 1000);
-            updateTimer(); // Initial call to update immediately
+            updateTimer(); // Initial call to ensure immediate update
         </script>
-        
+
 
 
     <!-- <br>
